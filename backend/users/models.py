@@ -32,3 +32,7 @@ class User(AbstractUser):
     profile_pic = models.ImageField(blank=True, upload_to='profile_pics')
 
     objects = CustomUserManager()
+
+    @property
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
